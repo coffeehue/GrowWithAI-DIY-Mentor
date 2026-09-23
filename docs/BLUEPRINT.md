@@ -8,7 +8,7 @@ Socratic Coding Mentor is an open, cross-platform learning system for programmin
 
 Unless a learner explicitly begins with `/reveal`, the system protects their active task. It does not provide copy-paste-ready complete code, a complete algorithm, full pseudocode, a rewritten fix, a solved equivalent example, or a sequence of clues that collectively becomes the solution.
 
-The system may inspect code, errors, tests, logs, and files, but protected learning modes stay read-only. It checks understanding through a prediction, trace, comparison, explanation, or small learner-owned step.
+The system may inspect code, errors, tests, logs, and files. Protected learning modes stay read-only except `/code`, which may create unfinished scaffold files and declarations after clarifying blocking requirements. It checks understanding through a prediction, trace, comparison, explanation, or small learner-owned step.
 
 ## Assistance model
 
@@ -34,6 +34,7 @@ The mentor records the highest help level used for the active task. It escalates
 | `/explain` | Standalone concept lesson | Uses unrelated examples for an active DSA problem. |
 | `/foundations` / `/toolkit` | Prerequisite map and lessons | Does not outline the source problem. |
 | `/challenge` | New realistic practice scenario | No reference solution or hidden route. |
+| `/code` | Clarified, researched feature plan plus file/function scaffold | Architecture and signatures allowed; implementation bodies stay with the learner. |
 | `/review` | First highest-leverage review issue | Does not rewrite the implementation. |
 | `/debug` | One evidence-led diagnostic loop | Does not jump to a speculative fix. |
 | `/quiz` | Adaptive retrieval practice | One question at a time. |
@@ -48,14 +49,16 @@ The mentor records the highest help level used for the active task. It escalates
 
 `/review` marks the next concern as `blocking`, `important`, or `polish`, cites evidence, and asks one correction-oriented question. Correctness and safety outrank style.
 
+`/code` inspects an existing repository before designing a feature. It asks a concise group of blocking questions and waits for answers; it states nonblocking assumptions. With web access it cites current official stack guidance and primary examples for complex decisions, and it distinguishes verified advice from inference. It applies SOLID, DRY, KISS, and clean code proportionately to actual constraints. Its plan lists decisions, file responsibilities, contracts, learner implementation order, and acceptance checks. An agent then creates minimal syntax-valid scaffolds with unimplemented bodies, preserving existing work and avoiding broken production wiring. In chat without file tools it provides copyable per-file skeletons. It ends by handing the first function back to the learner.
+
 ## Canonical artifacts and release boundaries
 
 | Artifact | Role | Source of truth? |
 | --- | --- | --- |
 | `prompts/master-system-prompt.md` | Full cross-platform prompt | Yes |
 | `prompts/chatgpt-custom-gpt-instructions.md` | Compact Custom GPT adaptation | Derived from master |
-| `skills/*/SKILL.md` | Seven portable skill packages | Yes |
-| `plugins/socratic-coding-mentor/skills/*` | Plugin mirrors of the seven packages | Mirror only |
+| `skills/*/SKILL.md` | Eight portable skill packages in the working tree | Yes |
+| `plugins/socratic-coding-mentor/skills/*` | Plugin mirrors of the eight packages | Mirror only |
 | `dist/claude/*.zip` | Individual skill release assets | Generated |
 | `dist/openai/*.zip` | Plugin release asset | Generated |
 | `evals/behavior-cases.md` | Manual acceptance and leakage cases | Yes |
@@ -69,8 +72,10 @@ Before a release:
 1. Run every applicable case in `evals/behavior-cases.md`.
 2. Verify a protected-mode request cannot leak a complete solution through code, pseudocode, examples, variable names, TODO completion, or cumulative hints.
 3. Verify `/reveal` works only when explicitly invoked and resets on the next task.
-4. Verify all seven plugin mirrors match their canonical skill counterparts.
+4. Verify all eight plugin mirrors match their canonical skill counterparts.
 5. Rebuild distribution ZIPs and update manifests, release notes, and documentation version references.
+
+The existing `1.1.0` plugin manifest and `dist/` ZIPs still describe the prior seven-skill release. The eight-skill source tree is unreleased; do not present the old bundles as containing `/code`.
 
 ## Public distribution
 

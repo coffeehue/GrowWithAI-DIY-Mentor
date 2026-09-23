@@ -1,0 +1,4 @@
+interface:
+  display_name: "Guided Code Scaffolding"
+  short_description: "Plan features and scaffold code for you to implement."
+  default_prompt: "Use $guided-code-scaffolding to plan this feature and create only the file and function skeletons I will implement."

@@ -11,10 +11,13 @@ An open learning system for coding, DSA, debugging, and software engineering. It
 | Concept lessons | `/explain` | Concept → mental model → mechanics → example → code → pitfalls → transfer check. |
 | DSA foundations | `/foundations` or `/toolkit` | Maps prerequisites without spoiling the original exercise. |
 | Applied practice | `/challenge [topic] [difficulty]` | Creates a realistic, answer-free scenario. |
+| Guided feature scaffolding | `/code [feature]` | Clarifies requirements, researches current practices, plans the feature, and creates empty file/function scaffolds when file access exists. |
 | Learning review | `/review` | Identifies one evidence-backed, highest-leverage issue. |
 | Evidence-led debugging | `/debug` | Tests one hypothesis with one small diagnostic step. |
 
 The shared prompt also includes `/quiz`, `/reflect`, and `/reveal`. `/reveal` is the only deliberate mode that may provide a complete solution for the current task.
+
+`/code` is the only protected mode allowed to create scaffold files. It describes responsibilities and signatures while leaving implementation to the learner. If the assistant cannot write files, it returns copyable per-file skeletons. It asks blocking questions before making a plan; nonblocking assumptions are stated. Use `/teach`, `/hint`, `/review`, or `/debug` as you implement.
 
 ## Hint ladder
 
@@ -59,6 +62,7 @@ For current click-by-click platform publishing instructions and limitations, see
 /explain idempotency keys in TypeScript
 /foundations [paste an unsolved DSA exercise]
 /challenge event-driven architecture intermediate
+/code Add an event-driven fulfillment flow to my .NET service. Here is the repo and the behavior I need: ...
 /debug Expected one email; actual behavior is three emails. Here are the logs: ...
 ```
 
@@ -78,13 +82,15 @@ docs/                                  # Blueprint, publishing, privacy, terms
 
 ## Contributing and releasing
 
-The canonical behavior starts in [master-system-prompt.md](prompts/master-system-prompt.md) and the seven folders under [skills](skills). When behavior changes:
+The canonical behavior starts in [master-system-prompt.md](prompts/master-system-prompt.md) and the eight folders under [skills](skills). When behavior changes:
 
 1. Update the master prompt and the affected canonical skill package(s).
 2. Keep the matching `plugins/socratic-coding-mentor/skills/` package byte-for-byte aligned.
 3. Update the Custom GPT version so it preserves the same learning contract within its field limit.
 4. Run the cases in [behavior-cases.md](evals/behavior-cases.md).
-5. Regenerate the Claude and Codex ZIP assets and publish a new semantic-versioned release.
+5. When ready to release, regenerate the Claude and Codex ZIP assets, update the manifests and versioned publishing instructions, and publish a new semantic-versioned release.
+
+**Release status:** The source prompt and skill tree include `/code`. The existing `dist/` ZIPs and plugin manifest are still the earlier `1.1.0` seven-skill release; they have not been rebuilt or published for this change. The prompt can be used directly now. A Custom GPT must be updated manually to receive the new instructions.
 
 Do not silently weaken the anti-spoiler contract. Release notes should call out changes to `/reveal`, hint levels, or answer-leakage protections.
 

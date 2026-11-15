@@ -1,4 +1,4 @@
-# Socratic Coding Mentor
+# SmarterTogether
 
 An open learning system for coding, DSA, debugging, and software engineering. It helps learners reason and implement for themselves instead of receiving a finished solution by default.
 
@@ -53,7 +53,7 @@ Download the individual ZIP packages from [dist/claude](dist/claude) and import 
 
 ### Source skills
 
-The individual skill sources are under [skills](skills). The files in this checkout have not been packaged into a new release for `/together`.
+The individual skill sources are under [skills](skills). The individual ZIPs in `dist/claude/` are built from the nine source skills. A GitHub release must be created separately.
 
 Check your platform’s current publishing instructions before distributing new skill packages.
 
@@ -91,7 +91,7 @@ The canonical behavior starts in [master-system-prompt.md](prompts/master-system
 3. Run the cases in [behavior-cases.md](evals/behavior-cases.md).
 4. When ready to release, regenerate the distributable ZIP assets and publish a new release.
 
-**Release status:** The source prompt and skill tree include `/code` and `/together`. The existing `dist/claude/` ZIPs were not rebuilt for `/together`. The prompt can be used directly now. A Custom GPT must be updated manually to receive the new instructions.
+**Release status:** The source prompt and skill tree include `/code` and `/together`, with matching skill ZIPs in `dist/claude/`. Create a GitHub release to publish a new version. Update any existing Custom GPT manually with the compact instructions.
 
 Do not silently weaken the anti-spoiler contract. Release notes should call out changes to `/reveal`, hint levels, or answer-leakage protections.
 

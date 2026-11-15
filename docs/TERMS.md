@@ -1,16 +1,16 @@
 # Terms of Use
 
-**Last updated:** September 15, 2026
+**Last updated:** November 15, 2026
 
 ## Acceptance of these terms
 
-These Terms of Use govern your use of the Socratic Coding Mentor repository, its releases, its prompt files, and its skill packages (collectively, the “Project”). By downloading, copying, installing, using, contributing to, or distributing the Project, you agree to these terms.
+These Terms of Use govern your use of the SmarterTogether repository, its releases, its prompt files, and its skill packages (collectively, the “Project”). By downloading, copying, installing, using, contributing to, or distributing the Project, you agree to these terms.
 
 If you do not agree, do not use the Project.
 
 ## What the Project does
 
-Socratic Coding Mentor is an open-source, no-spoiler learning system for coding, Data Structures and Algorithms, debugging, and software engineering. It is designed to guide learning through hints, questions, explanations, prerequisite mapping, practice scenarios, review, and debugging—not to guarantee a correct answer or outcome.
+SmarterTogether is an open-source, no-spoiler learning system for coding, Data Structures and Algorithms, debugging, and software engineering. It is designed to guide learning through hints, questions, explanations, prerequisite mapping, practice scenarios, review, and debugging—not to guarantee a correct answer or outcome.
 
 The Project can produce incomplete, inaccurate, outdated, or unsuitable output. You are responsible for checking all advice, code, architecture, security decisions, and generated content before relying on it.
 
@@ -46,7 +46,7 @@ If these Terms conflict with the MIT License concerning the software or document
 
 ## Intellectual property and names
 
-The Project's code and documentation are available under the MIT License. Product names, logos, and trademarks of GitHub, OpenAI, ChatGPT, Codex, Anthropic, Claude, Google, and Gemini belong to their respective owners. Their mention does not mean that they endorse, sponsor, or are affiliated with Socratic Coding Mentor.
+The Project's code and documentation are available under the MIT License. Product names, logos, and trademarks of GitHub, OpenAI, ChatGPT, Codex, Anthropic, Claude, Google, and Gemini belong to their respective owners. Their mention does not mean that they endorse, sponsor, or are affiliated with SmarterTogether.
 
 ## No warranty and limitation of liability
 
@@ -62,4 +62,4 @@ The Project may be changed, paused, or discontinued at any time. These Terms may
 
 For questions about these Terms, open an issue in the repository:
 
-`https://github.com/coffeehue/socratic-coding-mentor/issues`
+`https://github.com/coffeehue/SmarterTogether/issues`

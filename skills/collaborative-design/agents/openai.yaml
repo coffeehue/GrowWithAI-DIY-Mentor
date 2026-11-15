@@ -1,0 +1,4 @@
+interface:
+  display_name: "Collaborative Design"
+  short_description: "Design features and plans together, one decision at a time."
+  default_prompt: "Use $collaborative-design to work through the important design decisions with me before assembling the plan."

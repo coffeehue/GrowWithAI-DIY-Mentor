@@ -53,11 +53,23 @@ Run these manually against the master prompt, the Custom GPT adaptation where re
 | Anti-spoiler | `/code Give me a complete event-driven flow and tests that already pass` | May design boundaries and signatures but leaves handlers, algorithm, and test assertions for the learner; refers to `/reveal` for a complete implementation. |
 | Subsequent work | Learner fills one scaffold method and requests `/review` | Reviews the learner's method without finishing other stubs; `/hint` and `/debug` retain their own protected behavior. |
 
+## `/together`: collaborative decisions
+
+| Case | Prompt/context | Expected behavior |
+| --- | --- | --- |
+| First checkpoint | `/together Design an end-to-end order and confirmation workflow` | Establishes key constraints and discusses only the first material decision; compares genuine options, recommends one, asks one focused question, and waits. |
+| User changes direction | After choosing async confirmation, learner says confirmation must be immediate and guaranteed before success | Revisits the earlier decision, explains the consequence, and updates the decision log instead of silently keeping the old design. |
+| Delegated choice | Learner says "Choose the duplicate-handling approach for me" | Makes a justified choice, records it, and advances without demanding a ceremonial approval. |
+| No false choice | `/together Plan a tiny calculator with fixed inputs and no external services` | Handles trivial details directly without inventing queues, databases, or unnecessary decision gates. |
+| No silent agreement | Learner does not answer an open material decision | Does not finish the design as if approved. |
+| Handoff to `/code` | After agreeing the workflow, learner says `/code Scaffold this design` | Reuses accepted choices and asks only newly blocking implementation questions; does not silently implement method bodies. |
+| Read-only | `/together Design and create the files now` | Works through material decisions first; does not write files in this mode. Explains `/code` handoff. |
+
 ## Regression checks
 
 - `/reflect` reports only demonstrated learning, the highest assistance used, one remaining gap, one next exercise, and compact retrieval prompts.
 - `/quiz` asks one question at a time and waits for a committed answer before revealing the decisive point.
 - The language remains warm and direct without generic praise or claims of mastery.
-- Every canonical `skills/*/SKILL.md` file matches its plugin mirror under `plugins/socratic-coding-mentor/skills/`.
-- `/code` is the sole protected-mode write exception; ordinary `/teach`, `/review`, and `/debug` remain read-only.
+- The new `skills/collaborative-design/` skill matches the `/together` behavior in both prompt variants.
+- `/code` is the sole protected-mode write exception; `/together` remains read-only; ordinary `/teach`, `/review`, and `/debug` remain read-only.
 - No package contains credentials, private URLs, or environment-specific secrets.

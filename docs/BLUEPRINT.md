@@ -8,7 +8,7 @@ Socratic Coding Mentor is an open, cross-platform learning system for programmin
 
 Unless a learner explicitly begins with `/reveal`, the system protects their active task. It does not provide copy-paste-ready complete code, a complete algorithm, full pseudocode, a rewritten fix, a solved equivalent example, or a sequence of clues that collectively becomes the solution.
 
-The system may inspect code, errors, tests, logs, and files. Protected learning modes stay read-only except `/code`, which may create unfinished scaffold files and declarations after clarifying blocking requirements. It checks understanding through a prediction, trace, comparison, explanation, or small learner-owned step.
+The system may inspect code, errors, tests, logs, and files. Protected learning modes, including `/together`, stay read-only except `/code`, which may create unfinished scaffold files and declarations after clarifying blocking requirements. It checks understanding through a prediction, trace, comparison, explanation, or small learner-owned step.
 
 ## Assistance model
 
@@ -34,6 +34,7 @@ The mentor records the highest help level used for the active task. It escalates
 | `/explain` | Standalone concept lesson | Uses unrelated examples for an active DSA problem. |
 | `/foundations` / `/toolkit` | Prerequisite map and lessons | Does not outline the source problem. |
 | `/challenge` | New realistic practice scenario | No reference solution or hidden route. |
+| `/together` / `/involve` | Co-design a workflow or plan through material decisions | Compares real alternatives and waits for the learner at each checkpoint; read-only. |
 | `/code` | Clarified, researched feature plan plus file/function scaffold | Architecture and signatures allowed; implementation bodies stay with the learner. |
 | `/review` | First highest-leverage review issue | Does not rewrite the implementation. |
 | `/debug` | One evidence-led diagnostic loop | Does not jump to a speculative fix. |
@@ -49,6 +50,8 @@ The mentor records the highest help level used for the active task. It escalates
 
 `/review` marks the next concern as `blocking`, `important`, or `polish`, cites evidence, and asks one correction-oriented question. Correctness and safety outrank style.
 
+`/together` frames one material decision at a time. It explains the problem, viable alternatives and trade-offs, makes a recommendation, and waits for the learner. It records accepted choices and revises them when constraints change, then assembles the agreed design after material choices are resolved. It does not write scaffolds; the learner may switch to `/code` after design.
+
 `/code` inspects an existing repository before designing a feature. It asks a concise group of blocking questions and waits for answers; it states nonblocking assumptions. With web access it cites current official stack guidance and primary examples for complex decisions, and it distinguishes verified advice from inference. It applies SOLID, DRY, KISS, and clean code proportionately to actual constraints. Its plan lists decisions, file responsibilities, contracts, learner implementation order, and acceptance checks. An agent then creates minimal syntax-valid scaffolds with unimplemented bodies, preserving existing work and avoiding broken production wiring. In chat without file tools it provides copyable per-file skeletons. It ends by handing the first function back to the learner.
 
 ## Canonical artifacts and release boundaries
@@ -57,10 +60,8 @@ The mentor records the highest help level used for the active task. It escalates
 | --- | --- | --- |
 | `prompts/master-system-prompt.md` | Full cross-platform prompt | Yes |
 | `prompts/chatgpt-custom-gpt-instructions.md` | Compact Custom GPT adaptation | Derived from master |
-| `skills/*/SKILL.md` | Eight portable skill packages in the working tree | Yes |
-| `plugins/socratic-coding-mentor/skills/*` | Plugin mirrors of the eight packages | Mirror only |
+| `skills/*/SKILL.md` | Nine portable skill packages in the working tree | Yes |
 | `dist/claude/*.zip` | Individual skill release assets | Generated |
-| `dist/openai/*.zip` | Plugin release asset | Generated |
 | `evals/behavior-cases.md` | Manual acceptance and leakage cases | Yes |
 
 The master prompt and canonical skills are intentionally complementary. The prompt coordinates shared state and cross-command behavior; each skill provides a focused, portable operating contract. Do not allow them to contradict one another.
@@ -72,14 +73,13 @@ Before a release:
 1. Run every applicable case in `evals/behavior-cases.md`.
 2. Verify a protected-mode request cannot leak a complete solution through code, pseudocode, examples, variable names, TODO completion, or cumulative hints.
 3. Verify `/reveal` works only when explicitly invoked and resets on the next task.
-4. Verify all eight plugin mirrors match their canonical skill counterparts.
-5. Rebuild distribution ZIPs and update manifests, release notes, and documentation version references.
+4. Rebuild distribution ZIPs and update release notes and documentation version references.
 
-The existing `1.1.0` plugin manifest and `dist/` ZIPs still describe the prior seven-skill release. The eight-skill source tree is unreleased; do not present the old bundles as containing `/code`.
+The nine-skill source tree includes `/together`; the existing `dist/claude/` ZIPs were not rebuilt for it. Do not present those bundles as containing `/together`.
 
 ## Public distribution
 
-The project can be publicly discovered as a ChatGPT Custom GPT where account eligibility permits. Gemini Gems, Claude skills/projects, and Codex plugins have different sharing and discovery capabilities; none should be represented as universally searchable unless the platform currently provides that route. The detailed, platform-specific truth is maintained in [PUBLIC_DISTRIBUTION_GUIDE.md](PUBLIC_DISTRIBUTION_GUIDE.md).
+The project can be publicly discovered as a ChatGPT Custom GPT where account eligibility permits. Gemini Gems, Claude skills/projects, and Codex plugins have different sharing and discovery capabilities; none should be represented as universally searchable unless the platform currently provides that route. Check current platform publishing rules before release.
 
 ## Versioning policy
 

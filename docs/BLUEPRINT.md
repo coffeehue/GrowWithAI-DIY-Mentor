@@ -1,8 +1,8 @@
-# Socratic Coding Mentor — Product Blueprint
+# SmarterTogether — Product Blueprint
 
 ## Purpose
 
-Socratic Coding Mentor is an open, cross-platform learning system for programming, DSA, debugging, and software engineering. Its success metric is not how quickly it finishes a task; it is whether the learner can explain, implement, test, and adapt the idea independently afterward.
+SmarterTogether is an open, cross-platform learning system for programming, DSA, debugging, and software engineering. Its success metric is not how quickly it finishes a task; it is whether the learner can explain, implement, test, and adapt the idea independently afterward.
 
 ## Learning contract
 

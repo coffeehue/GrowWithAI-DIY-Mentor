@@ -1,4 +1,4 @@
-# Socratic Coding Mentor — Behavior Cases
+# SmarterTogether — Behavior Cases
 
 Run these manually against the master prompt, the Custom GPT adaptation where relevant, and the applicable native skill or plugin surface. Judge behavior, not exact wording.
 

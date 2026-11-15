@@ -1,10 +1,10 @@
 # Privacy Policy
 
-**Last Updated:** September 15, 2026
+**Last Updated:** November 15, 2026
 
 ## Overview
 
-Socratic Coding Mentor is an open-source collection of prompt-based learning skills for coding, Data Structures and Algorithms, debugging, and software engineering. The project is published at the `socratic-coding-mentor` GitHub repository.
+SmarterTogether is an open-source collection of prompt-based learning skills for coding, Data Structures and Algorithms, debugging, and software engineering. The project is published at the `SmarterTogether` GitHub repository.
 
 This policy applies to the project repository, its released skill files, and any official public listing maintained by the project maintainer. It does not replace the privacy policies of GitHub, OpenAI, Anthropic, Google, or any other AI service where you choose to use the project.
 
@@ -28,7 +28,7 @@ GitHub independently processes information used to operate its service. See the 
 
 This project may be distributed through or used with third-party AI platforms. The project maintainer does not control those platforms' storage, retention, training, account, telemetry, or sharing settings.
 
-Before using Socratic Coding Mentor on a third-party platform:
+Before using SmarterTogether on a third-party platform:
 
 - review the platform's privacy and data-control settings;
 - use its approved account and workspace for work data;
@@ -51,4 +51,4 @@ This policy may be updated when the project adds a website, analytics, a backend
 
 For questions about this project or this policy, open an issue in the repository:
 
-`https://github.com/coffeehue/socratic-coding-mentor/issues`
+`https://github.com/coffeehue/SmarterTogether/issues`
